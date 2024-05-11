@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buy Page</title>
+</head>
+<body>
+    <h1>Details of the Model for Sale</h1>
+    <div id="model-details"></div>
+
+    <script>
+        // Function to retrieve URL parameters
+        function getUrlParameter(name) {
+            name = name.replace(/[[]/, '\\[').replace(/[\]]/, '\\]');
+            var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+            var results = regex.exec(location.search);
+            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+        };
+
+        // Get the model name and keyword from URL parameters
+        var modelName = getUrlParameter('model-name');
+        var keyword = getUrlParameter('project-keyword');
+
+        // Display the model details on the page
+        var modelDetailsDiv = document.getElementById('model-details');
+        modelDetailsDiv.innerHTML = '<p><strong>Model Name:</strong> ' + modelName + '</p>';
+        modelDetailsDiv.innerHTML += '<p><strong>Keyword:</strong> ' + keyword + '</p>';
+    </script>
+</body>
+</html>
